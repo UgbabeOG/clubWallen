@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    /* Exact Colors from Club Wallen Scheme */
+    --color-bg-cream: hsl(43, 68%, 87%);
+    --color-text-dark: hsl(56, 11%, 24%);
+    --color-rust: hsl(27, 46%, 42%);
+    --color-rust-hover: hsl(27, 46%, 32%);
+    --color-charcoal: hsl(334, 10%, 13%);
+    --color-white: #ffffff;
+    
+    /* Typography */
+    --font-primary: 'Bebas Neue', sans-serif;
+    --font-secondary: 'Caveat', cursive; /* Fallback for chandler-42-regular */
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg-cream);
+    color: var(--color-text-dark);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, .nav-link, .btn {
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Announcement Bar */
+.announcement-bar {
+    background-color: var(--color-charcoal);
+    color: var(--color-white);
+    text-align: center;
+    padding: 10px 0 16px 0;
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    mask-image: url("https://cdn.shopify.com/s/files/1/0674/8317/3036/files/MW_Pre-Header_BG.png?v=1740517220");
+    mask-size: auto 100%;
+    -webkit-mask-image: url("https://cdn.shopify.com/s/files/1/0674/8317/3036/files/MW_Pre-Header_BG.png?v=1740517220");
+    -webkit-mask-size: auto 100%;
+}
+
+/* Header */
+.header-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+}
+
+.header-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://cdn.shopify.com/s/files/1/0674/8317/3036/files/MW_Header-BG.jpg?v=1741802261");
+    background-size: cover;
+    background-position: 50% 0%;
+    z-index: -1;
+    opacity: 0;
+    transition: 0.2s ease-out;
+}
+
+.header-wrapper.scrolled::before {
+    opacity: 1;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: padding 0.2s ease-out;
+}
+
+.header-wrapper.scrolled .nav-container {
+    padding: 10px 40px;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    font-size: 1.25rem;
+    color: var(--color-text-dark);
+    position: relative;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: var(--color-rust);
+}
+
+.nav-logo a {
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    color: var(--color-charcoal);
+    letter-spacing: 2px;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-text-dark);
+}
+
+/* Hero Section */
+.hero {
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+}
+
+.hero-title-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 0 40px;
+}
+
+.hero-title-wrapper::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: calc(100% + 5rem);
+    height: 130%;
+    top: -15%;
+    left: -2.5rem;
+    background-image: url("https://cdn.shopify.com/s/files/1/0674/8317/3036/files/MW_Page-Title-BG.png?v=1741368500");
+    background-size: 100% 85%;
+    background-position: 0% 85%;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.hero-title {
+    font-size: 5rem;
+    color: var(--color-charcoal);
+    line-height: 1;
+}
+
+.hero-subtitle {
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    color: var(--color-rust);
+    margin-bottom: 40px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-rust);
+    color: var(--color-white);
+    font-size: 1.5rem;
+    padding: 0.75rem 3rem;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s ease-out;
+    
+    /* Club Wallen Signature Distressed Button Edge */
+    mask-image: url("https://cdn.shopify.com/s/files/1/0674/8317/3036/files/MW_Button.png?v=1741316397");
+    mask-size: 100% 100%;
+    -webkit-mask-image: url("https://cdn.shopify.com/s/files/1/0674/8317/3036/files/MW_Button.png?v=1741316397");
+    -webkit-mask-size: 100% 100%;
+}
+
+.btn:hover {
+    background-color: var(--color-rust-hover);
+}
+
+.btn-secondary {
+    background-color: var(--color-charcoal);
+}
+.btn-secondary:hover {
+    background-color: #000;
+}
+
+/* Product Grid */
+.section-products {
+    max-width: 1400px;
+    margin: 60px auto;
+    padding: 0 40px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: 3.5rem;
+    color: var(--color-charcoal);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.product-item {
+    cursor: pointer;
+    text-align: center;
+}
+
+.product-image {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: #e5cd9e; /* slightly darker cream for contrast */
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover .product-image {
+    transform: scale(1.02);
+}
+
+.product-name {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    color: var(--color-text-dark);
+    margin-bottom: 5px;
+}
+
+.product-price {
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-charcoal);
+    color: var(--color-white);
+    padding: 80px 40px 40px;
+    margin-top: 100px;
+    position: relative;
+}
+
+/* Torn paper edge for footer */
+.footer::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-image: url("https://cdn.shopify.com/s/files/1/0674/8317/3036/files/MW_Torn-Paper-Edge.png?v=1741365416");
+    background-size: 100% 100%;
+    transform: rotate(180deg);
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-brand h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 60px;
+}
+
+.link-group h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--color-rust);
+}
+
+.link-group a {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+.link-group a:hover {
+    color: var(--color-white);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-left, .nav-right .nav-link {
+        display: none;
+    }
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    .footer-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
